@@ -11,15 +11,15 @@ const searchNews = document.getElementById("newsSearch")
 
 // Get the apis 
 const api_key = "eddebd9279ad454c8f0975735f3909b4"
-const generalNews = "https://newsapi.org/v2/top-headlines/sources?apiKey="
-const businessNews ="https://newsapi.org/v2/top-headlines/sources?category=business&apiKey="
-const entertainentNews ="https://newsapi.org/v2/top-headlines/sources?category=entertainment&apiKey="
-const techNews = "https://newsapi.org/v2/top-headlines/sources?category=technology&apiKey="
-const sportsNews = "https://newsapi.org/v2/top-headlines/sources?category=sports&apiKey="
+const generalNews = "https://newsapi.org/v2/top-headlines/sources?language=en&apiKey="
+const businessNews ="https://newsapi.org/v2/top-headlines/sources?language=en&category=business&apiKey="
+const entertainentNews ="https://newsapi.org/v2/top-headlines/sources?language=en&category=entertainment&apiKey="
+const techNews = "https://newsapi.org/v2/top-headlines/sources?language=en&category=technology&apiKey="
+const sportsNews = "https://newsapi.org/v2/top-headlines/sources?language=en&category=sports&apiKey="
 const Search_news = "https://newsapi.org/v2/everything?q=bitcoin"
 
 document.addEventListener("DOMContentLoaded", function(){
-    
+    // ! look for a method to make one fetch request to be reuasble
     const fetchGeneralNews = async()=>{
         const response = await fetch(generalNews+api_key)
         if (response.status >= 200 && response.status <300){
@@ -107,27 +107,20 @@ document.addEventListener("DOMContentLoaded", function(){
         fetchSearchNews()
     })
     
-// ... other code remains the same ...
-
-// ... other code remains the same ...
 
 function displayNews(data) {
     // Clear existing news content
     newsInfo.innerHTML = "";
-  
     // Extract the sources array from the response data
     const sources = data.sources;
-  
     // Create a container for the sources using Bootstrap grid
     const sourcesContainer = document.createElement("div");
     sourcesContainer.id = "sourceList";
     sourcesContainer.classList.add("container"); // Bootstrap container class
-  
     // Create a row for the sources
     const sourcesRow = document.createElement("div");
     sourcesRow.classList.add("row"); // Bootstrap row class
-  
-    // Loop through each source and create its card element
+       // Loop through each source and create its card element
     sources.forEach(source => {
       // Create a card column
       const sourceColumn = document.createElement("div");
@@ -170,5 +163,9 @@ function displayNews(data) {
     newsInfo.appendChild(sourcesContainer);
   }
   
-  
+/**
+ * TODO  populate the page on refresh, enable the search, add images to the news, add proper css to the page, add a footer, work on the error messages for the fetch request
+ * 
+ 
+ */
 })
