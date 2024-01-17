@@ -1,0 +1,10 @@
+// variable declaration
+const home = document.getElementById("general")
+const busines = document.getElementById("business")
+const entertainment = document.getElementById("entertainment")
+const technology = document.getElementById("technology")
+const sports = document.getElementById("sports")
+const search = document.getElementById("search")
+const newsHeader = document.getElementById("newsHeader")
+const newsInfo = document.getElementById("newsInfo")
+const searchNews = document.getElementById("newsSearch")
