@@ -93,14 +93,21 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("HTTP Error" + response.status)
     }
   };
-  const fetchSearchNews = async () => {
-    const response = await fetch(Search_news + api_key);
-    if (response.status >= 200 && response.status < 300) {
+  const fetchSearchNews = async (searchQuery) => {
+    try {
+      const response = await fetch(
+        `https://newsapi.org/v2/everything?q=${searchQuery}&apiKey=${api_key}`
+      );
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
       const data = await response.json();
-      //console.log(data)
       displayNews(data);
-    } else {
-      alert("HTTP Error" + response.status)
+    } catch (error) {
+      console.error("Error fetching news:", error);
+      // Display an error message to the user
     }
   };
 
@@ -122,8 +129,10 @@ document.addEventListener("DOMContentLoaded", function () {
   sports.addEventListener("click", function () {
     fetchSportsNews();
   });
-  search.addEventListener("click", function () {
-    fetchSearchNews();
+  search.addEventListener("submit", function (e) {
+    e.preventDefault()
+    let searchQuery = searchNews.value
+    fetchSearchNews(searchQuery);
   });
 
   function displayNews(data) {
