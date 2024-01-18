@@ -1,4 +1,6 @@
-
+*{
+    scroll-behavior: smooth;
+}
 .logo{
     color: rgb(231, 10, 10);
 }
@@ -11,5 +13,18 @@ span{
     color: black;
     font-weight: bold;
     font-size: 1em;
-
+}
+#myBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+    background-color: #0e2ee2; 
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#myBtn:hover {
+    background-color: #555;
 }

@@ -9,6 +9,7 @@ const search = document.getElementById("search");
 const newsHeader = document.getElementById("newsHeader");
 const newsInfo = document.getElementById("newsInfo");
 const searchNews = document.getElementById("newsSearch");
+const mybutton = document.getElementById("myBtn")
 
 // Declare variable the apis
 // ! Work on fetching the data from one api and filter out data to the respective categories
@@ -29,6 +30,23 @@ document.addEventListener("DOMContentLoaded", function () {
     window.onload = function(){
         fetchGeneralNews()
     }
+    window.onscroll = function () {
+      scrollFunction()
+    }
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    mybutton.addEventListener("click", ()=>{
+      topFunction()
+    })
 
   // ! look for a method to make one fetch request to be reuasble
   const fetchGeneralNews = async () => {
@@ -178,3 +196,4 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 // * TODO  populate the page on refresh, enable the search, add images to the news, add proper css to the page, add a footer, work on the error messages for the fetch request
+// *TODO commet my code
