@@ -10,7 +10,8 @@ const newsHeader = document.getElementById("newsHeader");
 const newsInfo = document.getElementById("newsInfo");
 const searchNews = document.getElementById("newsSearch");
 
-// Get the apis
+// Declare variable the apis
+// ! Work on fetching the data from one api and filter out data to the respective categories
 const api_key = "eddebd9279ad454c8f0975735f3909b4";
 const generalNews =
   "https://newsapi.org/v2/everything?q=sources&language=en&apiKey=";
@@ -44,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const response = await fetch(politicsNews + api_key);
     if (response.status >= 200 && response.status < 300) {
       const data = await response.json();
-      //console.log(data)
+      console.log(data)
       displayNews(data);
     } else {
         alert("HTTP Error" + response.status)
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
       //console.log(data)
       displayNews(data);
     } else {
-        alert("HTTP Error" + response.status)
+      alert("HTTP Error" + response.status)
     }
   };
   const fetchTechNews = async () => {
@@ -78,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(data);
       displayNews(data);
     } else {
+      alert("HTTP Error" + response.status)
     }
   };
   const fetchSportsNews = async () => {
@@ -88,6 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(data);
       displayNews(data);
     } else {
+      alert("HTTP Error" + response.status)
     }
   };
   const fetchSearchNews = async () => {
@@ -97,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
       //console.log(data)
       displayNews(data);
     } else {
+      alert("HTTP Error" + response.status)
     }
   };
 
@@ -119,7 +123,6 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchSportsNews();
   });
   search.addEventListener("click", function () {
-    searchNews.innerHTML=search.value
     fetchSearchNews();
   });
 
@@ -128,7 +131,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const articles = data.articles;
     const articlesContainer = document.createElement("div");
     articlesContainer.classList.add("container");
-
     const articlesRow = document.createElement("div");
     articlesRow.classList.add("row");
     articles.forEach((article) => {

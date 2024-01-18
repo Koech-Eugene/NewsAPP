@@ -5,4 +5,11 @@
 span{
     font-weight: bold;
     font-size: 20px;
+    color: blue;
+}
+.card-header{
+    color: black;
+    font-weight: bold;
+    font-size: 1em;
+
 }
