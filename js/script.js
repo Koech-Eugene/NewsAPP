@@ -13,9 +13,8 @@ const mybutton = document.getElementById("myBtn")
 
 // Declare variable the apis
 // ! Work on fetching the data from one api and filter out data to the respective categories
-const api_key = "eddebd9279ad454c8f0975735f3909b4";
-const generalNews =
-  "https://newsapi.org/v2/everything?q=sources&language=en&apiKey=";
+const api_key = config.apiKey
+const generalNews = "https://newsapi.org/v2/everything?q=sources&language=en&apiKey=";
 const politicsNews ="https://newsapi.org/v2/top-headlines?langauge=en&category=politics&apiKey="
 const businessNews = "https://newsapi.org/v2/top-headlines?language=en&category=business&apiKey=";
 const entertainentNews =

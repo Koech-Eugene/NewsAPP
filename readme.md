@@ -5,10 +5,11 @@ This app gives some sort of overview of a particular article or news which then 
 
 ## Technologies
 
-1. `HTML`
-2. `CSS`
-3. `BOOTSTRAP`
-4. `JAVASCRIPT`
+1. `HTML` - basic structure
+2. `CSS` - styling
+3. `BOOTSTRAP` - css framework
+4. `JAVASCRIPT` - functionality
+5. `POSTMAN` - to test the api
 
 ## Features
 
